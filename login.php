@@ -52,6 +52,46 @@
                                             <span class="text-gray-550">Routelink Mediatech</span>
                                         </div>
                                     </div>
+
+                                    <?php if (isset($_GET['error'])): ?>
+                                        <?php if ($_GET['error'] === 'akun'): ?>
+                                            <div class="alert alert-danger alert-dismissible fade show small" role="alert">
+                                                <i class="fas fa-exclamation-circle mr-1"></i>
+                                                Username atau akun tidak ditemukan.
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                    
+                                        <?php elseif ($_GET['error'] === 'pass'): ?>
+                                            <div class="alert alert-danger alert-dismissible fade show small" role="alert">
+                                                <i class="fas fa-exclamation-circle mr-1"></i>
+                                                Password yang kamu masukkan salah.
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                    
+                                        <?php elseif ($_GET['error'] === 'kosong'): ?>
+                                            <div class="alert alert-warning alert-dismissible fade show small" role="alert">
+                                                <i class="fas fa-exclamation-triangle mr-1"></i>
+                                                Username dan password wajib diisi.
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                    
+                                        <?php elseif ($_GET['error'] === 'role'): ?>
+                                            <div class="alert alert-danger alert-dismissible fade show small" role="alert">
+                                                <i class="fas fa-exclamation-circle mr-1"></i>
+                                                Role akun tidak dikenali. Silakan hubungi administrator.
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                    
                                     <form action="proses_login.php" 
                                           method="POST" class="user" 
                                           id="loginForm"
@@ -115,19 +155,6 @@
             passwordInput.type = this.checked ? "text" : "password";
         });
     });
-
-    VANTA.NET({
-        el: "#bg-parallax",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0xffffff,
-        backgroundColor: 0x4e73df
-        })
 
     document.addEventListener("DOMContentLoaded", function () {
          document.body.classList.add("loaded");
